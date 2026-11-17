@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamre Fantasy</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0b1020;color:white;font-family:Arial,sans-serif;padding-bottom:75px}
+header{background:#171d36;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:21px;font-weight:900;color:#b78cff}
+button{cursor:pointer}
+.coins{margin:16px;padding:22px;background:linear-gradient(120deg,#5425a5,#994be5);border-radius:16px}
+.coins h1{font-size:30px;margin:10px 0}
+.heading{margin:22px 16px 12px}
+.sports{display:flex;gap:10px;padding:0 16px}
+.sport{background:#202944;padding:12px;border-radius:10px}
+.match{margin:14px 16px;background:#19223d;padding:18px;border-radius:14px}
+.teams{display:flex;justify-content:space-around;text-align:center;margin:25px 0;font-weight:bold}
+.flag{font-size:30px;margin-bottom:8px}
+.join{background:#8b48df;color:white;border:0;padding:11px 18px;border-radius:8px}
+.info{display:flex;justify-content:space-between;align-items:center}
+.notice{margin:16px;padding:14px;background:#18352f;border-radius:10px;color:#b5f5d6;font-size:13px}
+nav{position:fixed;bottom:0;background:#171d36;width:100%;display:flex;justify-content:space-around;padding:15px 4px}
+nav button{background:none;border:0;color:#d1d5e8;font-size:12px}
+.page{display:none}
+.page.active{display:block}
+.empty{text-align:center;padding:40px;color:#aab3ce}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">KAMRE FANTASY</div>
+<div>👤 Guest</div>
+</header>
+
+<div class="coins">
+<small>🪙 MY VIRTUAL WALLET</small>
+<h1>5000 🪙</h1>
+<p>Welcome Bonus · Free Virtual Coins</p>
+</div>
+
+<div id="home" class="page active">
+<h3 class="heading">Choose Your Sport</h3>
+<div class="sports">
+<div class="sport">🏏 Cricket</div>
+<div class="sport">⚽ Football</div>
+</div>
+<h3 class="heading">🔥 Upcoming Matches</h3>
+
+<div class="match">
+<small>DEMO MATCH · T20</small>
+<div class="teams">
+<div><div class="flag">🇮🇳</div>INDIA</div>
+<div>VS</div>
+<div><div class="flag">🇦🇺</div>AUSTRALIA</div>
+</div>
+<div class="info">
+<small>Demo Contest</small>
+<button class="join" onclick="alert('Demo only. Contest system coming soon!')">Join Contest</button>
+</div>
+</div>
+
+<div class="notice">🎮 All coins are virtual. No real money deposits, cash prizes or withdrawals.</div>
+</div>
+
+<div id="contests" class="page">
+<h3 class="heading">🏆 My Contests</h3>
+<div class="empty">No contests joined yet.</div>
+</div>
+<div id="teams" class="page">
+<h3 class="heading">👥 My Teams</h3>
+<div class="empty">Your teams will appear here.</div>
+</div>
+<div id="ranking" class="page">
+<h3 class="heading">🥇 Leaderboard</h3>
+<div class="empty">Leaderboard coming soon.</div>
+</div>
+<div id="wallet" class="page">
+<h3 class="heading">🪙 My Wallet</h3>
+<div class="empty">50,000 Virtual Coins</div>
+</div>
+
+<nav>
+<button onclick="page('home')">🏠<br>Home</button>
+<button onclick="page('contests')">🏆<br>Contests</button>
+<button onclick="page('teams')">👥<br>Teams</button>
+<button onclick="page('ranking')">🥇<br>Ranking</button>
+<button onclick="page('wallet')">🪙<br>Wallet</button>
+</nav>
+
+<script>
+function page(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+  </html>
+  
