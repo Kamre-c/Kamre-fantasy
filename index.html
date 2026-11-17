@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAMRE FANTASY</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#0b1020;color:#fff;padding-bottom:75px}
+header{background:#141c35;padding:18px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #293252}
+.logo{font-size:21px;font-weight:900;color:#a78bfa}
+.logo span{color:#fff}
+.profile{background:#292044;padding:9px 12px;border-radius:20px;font-size:13px}
+.wallet{margin:16px;padding:20px;background:linear-gradient(120deg,#5425a5,#8b43db);border-radius:16px}
+.wallet small{color:#e5d5ff}
+.coins{font-size:30px;font-weight:bold;margin:8px 0}
+.wallet button{background:#fff;color:#5425a5;border:0;padding:9px 15px;border-radius:8px;font-weight:bold}
+.heading{margin:23px 16px 13px;font-size:18px}
+.sports{display:flex;gap:10px;padding:0 16px;overflow:auto}
+.sport{background:#1a2340;border:1px solid #343e60;border-radius:10px;padding:13px 17px;white-space:nowrap}
+.sport.active{background:#7138c7;border-color:#a78bfa}
+.match{margin:12px 16px;background:#171f38;border:1px solid #2d3858;border-radius:14px;padding:16px}
+.matchtop{display:flex;justify-content:space-between;color:#aeb9d5;font-size:12px;margin-bottom:17px}
+.teams{display:flex;justify-content:space-around;align-items:center;text-align:center;font-size:15px;font-weight:bold}
+.team{font-size:24px;margin-bottom:7px}
+.vs{color:#a78bfa;font-size:13px}
+.info{border-top:1px solid #303a57;margin-top:17px;padding-top:13px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#c2cbe0}
+.join{background:#8046db;color:white;border:0;padding:10px 15px;border-radius:8px;font-weight:bold}
+.notice{margin:16px;padding:13px;background:#182c32;border:1px solid #28635b;border-radius:10px;color:#a7f3d0;font-size:12px;line-height:1.5}
+nav{position:fixed;bottom:0;left:0;width:100%;background:#141c35;display:flex;justify-content:space-around;padding:12px 4px;border-top:1px solid #303a57}
+nav button{background:none;border:0;color:#b7bfd5;font-size:11px}
+nav button.active{color:#c4a1ff}
+nav span{display:block;font-size:19px;margin-bottom:4px}
+.page{display:none}
+.page.active{display:block}
+.empty{text-align:center;padding:35px 15px;color:#aeb9d5}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">KAMRE <span>FANTASY</span></div>
+<div class="profile">👤 Guest</div>
+</header>
+
+<div class="wallet">
+<small>🪙 MY VIRTUAL WALLET</small>
+<div class="coins">50,000 🪙</div>
+<small>Welcome Bonus · Virtual Coins Only</small>
+</div>
+
+<div id="home" class="page active">
+<h3 class="heading">Choose Your Sport</h3>
+<div class="sports">
+<div class="sport active">🏏 Cricket</div>
+<div class="sport">⚽ Football</div>
+<div class="sport">🏀 Basketball</div>
+</div>
+
+<h3 class="heading">🔥 Upcoming Matches</h3>
+
+<div class="match">
+<div class="matchtop"><span>🏏 T20 MATCH</span><span>UPCOMING</span></div>
+<div class="teams">
+<div><div class="team">🇮🇳</div>INDIA</div>
+<div class="vs">VS</div>
+<div><div class="team">🇦🇺</div>AUSTRALIA</div>
+</div>
+<div class="info">
+<span>Demo Match · 7:30 PM</span>
+<button class="join" onclick="joinContest()">Join Contest</button>
+</div>
+</div>
+
+<div class="match">
+<div class="matchtop"><span>🏏 ODI MATCH</span><span>UPCOMING</span></div>
+<div class="teams">
+<div><div class="team">🇵🇰</div>PAKISTAN</div>
+<div class="vs">VS</div>
+<div><div class="team">🇿🇦</div>SOUTH AFRICA</div>
+</div>
+<div class="info">
+<span>Demo Match · 2:00 PM</span>
+<button class="join" onclick="joinContest()">Join Contest</button>
+</div>
+</div>
+
+<div class="notice">🎮 Play for fun! All coins are virtual, have no cash value and cannot be withdrawn or exchanged for money.</div>
+</div>
+
+<div id="contests" class="page">
+<h3 class="heading">🏆 My Contests</h3>
+<div class="empty">No contests joined yet.</div>
+</div>
+
+<div id="teams" class="page">
+<h3 class="heading">👥 My Teams</h3>
+<div class="empty">Your created teams will appear here.</div>
+</div>
+
+<div id="leaderboard" class="page">
+<h3 class="heading">🥇 Leaderboard</h3>
+<div class="empty">Leaderboard will appear here.</div>
+</div>
+
+<div id="wallet" class="page">
+<h3 class="heading">🪙 My Wallet</h3>
+<div class="empty">5000 Virtual Coins<br><br>Cash deposit and withdrawal are not available.</div>
+</div>
+
+<nav>
+<button class="active" onclick="showPage('home',this)"><span>🏠</span>Home</button>
+<button onclick="showPage('contests',this)"><span>🏆</span>Contests</button>
+<button onclick="showPage('teams',this)"><span>👥</span>My Teams</button>
+<button onclick="showPage('leaderboard',this)"><span>🥇</span>Ranking</button>
+<button onclick="showPage('wallet',this)"><span>🪙</span>Wallet</button>
+</nav>
+
+<script>
+function showPage(id,btn){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+function joinContest(){
+alert('This is a design preview. Real contests and team selection will be connected in the next development step.');
+}
+</script>
+</body>
+  </html>
+  
